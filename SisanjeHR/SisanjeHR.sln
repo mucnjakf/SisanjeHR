@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30711.63
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisanjeHrDesktopApp", "SisanjeHrDesktopApp\SisanjeHrDesktopApp.csproj", "{24E6E2BA-A046-4FFA-97E1-17B868E79645}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisanjeHrApi", "SisanjeHrApi\SisanjeHrApi.csproj", "{40314F06-A385-4CAE-A0CE-5DB1D463BEC8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{0E9B0C64-C3B3-49D6-B05F-844FD3A64914}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utilities", "Utilities\Utilities.csproj", "{FD52CA6B-059E-4361-AD40-920C410909C8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiClient", "ApiClient\ApiClient.csproj", "{2A503A2A-C799-4919-8659-31704CDC7552}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SisanjeHrWebApp", "SisanjeHrWebApp\SisanjeHrWebApp.csproj", "{BF83F53D-7F5F-4CF6-9634-5B799E06B611}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{24E6E2BA-A046-4FFA-97E1-17B868E79645}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24E6E2BA-A046-4FFA-97E1-17B868E79645}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24E6E2BA-A046-4FFA-97E1-17B868E79645}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24E6E2BA-A046-4FFA-97E1-17B868E79645}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40314F06-A385-4CAE-A0CE-5DB1D463BEC8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40314F06-A385-4CAE-A0CE-5DB1D463BEC8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40314F06-A385-4CAE-A0CE-5DB1D463BEC8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40314F06-A385-4CAE-A0CE-5DB1D463BEC8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9B0C64-C3B3-49D6-B05F-844FD3A64914}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0E9B0C64-C3B3-49D6-B05F-844FD3A64914}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0E9B0C64-C3B3-49D6-B05F-844FD3A64914}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0E9B0C64-C3B3-49D6-B05F-844FD3A64914}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FD52CA6B-059E-4361-AD40-920C410909C8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FD52CA6B-059E-4361-AD40-920C410909C8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FD52CA6B-059E-4361-AD40-920C410909C8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FD52CA6B-059E-4361-AD40-920C410909C8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A503A2A-C799-4919-8659-31704CDC7552}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A503A2A-C799-4919-8659-31704CDC7552}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A503A2A-C799-4919-8659-31704CDC7552}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A503A2A-C799-4919-8659-31704CDC7552}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF83F53D-7F5F-4CF6-9634-5B799E06B611}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF83F53D-7F5F-4CF6-9634-5B799E06B611}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF83F53D-7F5F-4CF6-9634-5B799E06B611}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF83F53D-7F5F-4CF6-9634-5B799E06B611}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C07089C-D941-433E-AF90-4260DF765698}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,53 @@
+﻿@using DataAccessLayer.Models
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="~/Content/app.css" rel="stylesheet" type="text/css" />
+    <script src="https://use.fontawesome.com/7143e26338.js"></script>
+    <script src="~/Scripts/app.js"></script>
+    <script src="~/Scripts/jquery-3.0.0.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <title>Sisanje.hr - @ViewBag.Title</title>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar navbar-expand-sm justify-content-between">
+        <h1 class="ml-5"><small><a href="https://localhost:44333/" style="text-decoration: none; color: black;">Sisanje.hr</a></small></h1>
+        <ul class="navbar-nav">
+            <li class="nav-item ml-5 mr-2">
+                <button type="button" class="btn btn-outline-primary" onclick="location.href='@Url.Action("Search", "Home")'"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+            </li>
+            @if (Session["RegisteredUser"] == null)
+            {
+                <li class="nav-item mr-2">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='@Url.Action("Register", "Account")'"><i class="fa fa-user-plus" aria-hidden="true"></i> Register</button>
+                </li>
+                <li class="nav-item mr-5">
+                    <button type="button" class="btn btn-outline-success" onclick="location.href='@Url.Action("Login", "Account")'"><i class="fa fa-sign-in" aria-hidden="true"></i> Login</button>
+                </li>
+            }
+            else
+            {
+                <li class="nav-item mr-2">
+                    <button type="button" class="btn btn-outline-primary" onclick="location.href='@Url.Action("UserProfile", "Account")'"><i class="fa fa-user-circle" aria-hidden="true"></i> Hello, @(((RegisteredUser)Session["RegisteredUser"]).GetFullName())</button>
+                </li>
+                <li class="nav-item mr-5">
+                    <button type="button" class="btn btn-outline-danger" onclick="location.href='@Url.Action("Logout", "Account")'"><i class="fa fa-sign-out" aria-hidden="true"></i> Logout</button>
+                </li>
+            }
+        </ul>
+    </nav>
+    <!-- Navigation Bar -->
+
+    <!-- Main Body -->
+    <main>
+        @RenderBody()
+    </main>
+    <!-- Main Body -->
+</body>
+</html>

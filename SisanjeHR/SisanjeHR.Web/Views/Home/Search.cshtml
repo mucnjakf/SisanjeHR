@@ -1,0 +1,58 @@
+﻿@model Utilities.ViewModels.HairSalonViewModels.HairSalonSearchVM
+
+@{
+    ViewBag.Title = "Search";
+}
+
+<!-- Search Form -->
+<div>
+    <h1 class="my-5 text-center"><small>Search for hair salons based on your location</small></h1>
+    <div class="container my-5 w-50">
+        <div class="row">
+            <div class="col-6">
+                @using (Html.BeginForm("Search", "Home", FormMethod.Post))
+                {
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Address, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.City, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.City, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.City, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.SelectedCountry, htmlAttributes: new { @class = "control-label" })
+                        @Html.DropDownListFor(model => model.SelectedCountry, Model.Countries, new { @class = "form-control placeholder" })
+                        @Html.ValidationMessageFor(model => model.SelectedCountry, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Distance, htmlAttributes: new { @class = "control-label" })
+                        @Html.EditorFor(model => model.Distance, new { htmlAttributes = new { @class = "form-control", type = "number" } })
+                        @Html.ValidationMessageFor(model => model.Distance, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-outline-primary btn-block mt-5"><i class="fa fa-search" aria-hidden="true"></i> Search</button>
+                    </div>
+                }
+            </div>
+            <div class="col-6 mt-3">
+                <iframe width="500" height="400" frameborder="1" src="https://www.bing.com/maps/embed?h=400&w=500&cp=36.597889133070204~13.559793668020884&lvl=1&typ=d&sty=h&src=SHELL&FORM=MBEDV8" scrolling="no">
+                </iframe>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Search Form -->
+<!-- JS -->
+<script>
+    $(".placeholder").prepend("<option value='' disabled selected>Select your country</option>");
+</script>
+
+<!--
+-->

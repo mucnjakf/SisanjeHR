@@ -1,0 +1,372 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0E9B0C64-C3B3-49D6-B05F-844FD3A64914}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccessLayer</RootNamespace>
+    <AssemblyName>DataAccessLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DatabaseContext\SisanjeHrDbContext.cs" />
+    <Compile Include="Migrations\202011142323046_InitialCreate.cs" />
+    <Compile Include="Migrations\202011142323046_InitialCreate.designer.cs">
+      <DependentUpon>202011142323046_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011151826161_CreatedModels.cs" />
+    <Compile Include="Migrations\202011151826161_CreatedModels.designer.cs">
+      <DependentUpon>202011151826161_CreatedModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011152056165_AddedSubscriptionId.cs" />
+    <Compile Include="Migrations\202011152056165_AddedSubscriptionId.designer.cs">
+      <DependentUpon>202011152056165_AddedSubscriptionId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011161240194_AddedRequiredIds.cs" />
+    <Compile Include="Migrations\202011161240194_AddedRequiredIds.designer.cs">
+      <DependentUpon>202011161240194_AddedRequiredIds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011161631054_AddedCityLocationsId.cs" />
+    <Compile Include="Migrations\202011161631054_AddedCityLocationsId.designer.cs">
+      <DependentUpon>202011161631054_AddedCityLocationsId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011161636380_AddedCityLocationsIdToCityAndLocation.cs" />
+    <Compile Include="Migrations\202011161636380_AddedCityLocationsIdToCityAndLocation.designer.cs">
+      <DependentUpon>202011161636380_AddedCityLocationsIdToCityAndLocation.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011161802163_RemovedManyToManyLocCity.cs" />
+    <Compile Include="Migrations\202011161802163_RemovedManyToManyLocCity.designer.cs">
+      <DependentUpon>202011161802163_RemovedManyToManyLocCity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171142091_RemovedRegisteredUserLocId.cs" />
+    <Compile Include="Migrations\202011171142091_RemovedRegisteredUserLocId.designer.cs">
+      <DependentUpon>202011171142091_RemovedRegisteredUserLocId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011171147248_RemovedIds.cs" />
+    <Compile Include="Migrations\202011171147248_RemovedIds.designer.cs">
+      <DependentUpon>202011171147248_RemovedIds.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011181737518_RefactoredOwner.cs" />
+    <Compile Include="Migrations\202011181737518_RefactoredOwner.designer.cs">
+      <DependentUpon>202011181737518_RefactoredOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011201722015_AddedWorkersToOwner.cs" />
+    <Compile Include="Migrations\202011201722015_AddedWorkersToOwner.designer.cs">
+      <DependentUpon>202011201722015_AddedWorkersToOwner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011202002276_ResetOwnerHairSalon.cs" />
+    <Compile Include="Migrations\202011202002276_ResetOwnerHairSalon.designer.cs">
+      <DependentUpon>202011202002276_ResetOwnerHairSalon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011202004446_ConnectedOwnerHairSalon.cs" />
+    <Compile Include="Migrations\202011202004446_ConnectedOwnerHairSalon.designer.cs">
+      <DependentUpon>202011202004446_ConnectedOwnerHairSalon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011202018310_ResetOwnerHairSalon2.cs" />
+    <Compile Include="Migrations\202011202018310_ResetOwnerHairSalon2.designer.cs">
+      <DependentUpon>202011202018310_ResetOwnerHairSalon2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011202020305_ConnectedOwnerHairSalon2.cs" />
+    <Compile Include="Migrations\202011202020305_ConnectedOwnerHairSalon2.designer.cs">
+      <DependentUpon>202011202020305_ConnectedOwnerHairSalon2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011202040390_OwnerHSTweak.cs" />
+    <Compile Include="Migrations\202011202040390_OwnerHSTweak.designer.cs">
+      <DependentUpon>202011202040390_OwnerHSTweak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011202042224_OwnerHSTweak2.cs" />
+    <Compile Include="Migrations\202011202042224_OwnerHSTweak2.designer.cs">
+      <DependentUpon>202011202042224_OwnerHSTweak2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011211155018_ChangedWorkingHourDateTimeToString.cs" />
+    <Compile Include="Migrations\202011211155018_ChangedWorkingHourDateTimeToString.designer.cs">
+      <DependentUpon>202011211155018_ChangedWorkingHourDateTimeToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011211352473_AddedTimeStartAndEnd.cs" />
+    <Compile Include="Migrations\202011211352473_AddedTimeStartAndEnd.designer.cs">
+      <DependentUpon>202011211352473_AddedTimeStartAndEnd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231336546_RemovedHairSalonWorkers.cs" />
+    <Compile Include="Migrations\202011231336546_RemovedHairSalonWorkers.designer.cs">
+      <DependentUpon>202011231336546_RemovedHairSalonWorkers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231340322_AddedWorkersToHairSalon.cs" />
+    <Compile Include="Migrations\202011231340322_AddedWorkersToHairSalon.designer.cs">
+      <DependentUpon>202011231340322_AddedWorkersToHairSalon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231345325_WorkerHairSalonIsNullable.cs" />
+    <Compile Include="Migrations\202011231345325_WorkerHairSalonIsNullable.designer.cs">
+      <DependentUpon>202011231345325_WorkerHairSalonIsNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231953333_RemovedOwnerWorkers.cs" />
+    <Compile Include="Migrations\202011231953333_RemovedOwnerWorkers.designer.cs">
+      <DependentUpon>202011231953333_RemovedOwnerWorkers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011231954402_AddedOwnersWorkers.cs" />
+    <Compile Include="Migrations\202011231954402_AddedOwnersWorkers.designer.cs">
+      <DependentUpon>202011231954402_AddedOwnersWorkers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011241359590_CreatedAppointment.cs" />
+    <Compile Include="Migrations\202011241359590_CreatedAppointment.designer.cs">
+      <DependentUpon>202011241359590_CreatedAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202011241601461_FixedAppointment.cs" />
+    <Compile Include="Migrations\202011241601461_FixedAppointment.designer.cs">
+      <DependentUpon>202011241601461_FixedAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101141823445_RemovedAppointmentIsAccDec.cs" />
+    <Compile Include="Migrations\202101141823445_RemovedAppointmentIsAccDec.designer.cs">
+      <DependentUpon>202101141823445_RemovedAppointmentIsAccDec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101161543331_AddedHairSalonReviews.cs" />
+    <Compile Include="Migrations\202101161543331_AddedHairSalonReviews.designer.cs">
+      <DependentUpon>202101161543331_AddedHairSalonReviews.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101161928286_AddedRatingToReview.cs" />
+    <Compile Include="Migrations\202101161928286_AddedRatingToReview.designer.cs">
+      <DependentUpon>202101161928286_AddedRatingToReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101162227290_AddedFavoriteHairSalons.cs" />
+    <Compile Include="Migrations\202101162227290_AddedFavoriteHairSalons.designer.cs">
+      <DependentUpon>202101162227290_AddedFavoriteHairSalons.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101171600452_AddMethodOfPaymentToAppointment.cs" />
+    <Compile Include="Migrations\202101171600452_AddMethodOfPaymentToAppointment.designer.cs">
+      <DependentUpon>202101171600452_AddMethodOfPaymentToAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101171732481_AddedTotalPriceToAppointment.cs" />
+    <Compile Include="Migrations\202101171732481_AddedTotalPriceToAppointment.designer.cs">
+      <DependentUpon>202101171732481_AddedTotalPriceToAppointment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101171734581_ChangedTotalPriceToDecimal.cs" />
+    <Compile Include="Migrations\202101171734581_ChangedTotalPriceToDecimal.designer.cs">
+      <DependentUpon>202101171734581_ChangedTotalPriceToDecimal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202101190833292_AddedDateToReview.cs" />
+    <Compile Include="Migrations\202101190833292_AddedDateToReview.designer.cs">
+      <DependentUpon>202101190833292_AddedDateToReview.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Admin.cs" />
+    <Compile Include="Models\Appointment.cs" />
+    <Compile Include="Models\AppointmentServices.cs" />
+    <Compile Include="Models\City.cs" />
+    <Compile Include="Models\Country.cs" />
+    <Compile Include="Models\FavoriteHairSalons.cs" />
+    <Compile Include="Models\HairSalon.cs" />
+    <Compile Include="Models\HairSalonMethodsOfPayment.cs" />
+    <Compile Include="Models\HairSalonServices.cs" />
+    <Compile Include="Models\HairSalonWorkingHours.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\MethodOfPayment.cs" />
+    <Compile Include="Models\Owner.cs" />
+    <Compile Include="Models\RegisteredUser.cs" />
+    <Compile Include="Models\Review.cs" />
+    <Compile Include="Models\Service.cs" />
+    <Compile Include="Models\Subscription.cs" />
+    <Compile Include="Models\Worker.cs" />
+    <Compile Include="Models\WorkingHour.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\Interfaces\IAppointmentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAppointmentServicesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IFavoriteHairSalonRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHairSalonMethodsOfPaymentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHairSalonRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHairSalonServicesRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IHairSalonWorkingHoursRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IMethodOfPaymentRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IReviewRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IServiceRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IWorkerRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IWorkingHourRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\AdminRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\AppointmentRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\AppointmentServicesRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\CityRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\CountryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IAdminRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICityRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ICountryRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ILocationRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IOwnerRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRegisteredUserRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IRepository.cs" />
+    <Compile Include="Repositories\Interfaces\ISubscriptionRepository.cs" />
+    <Compile Include="Repositories\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="Repositories\ModelRepositories\FavoriteHairSalonRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\HairSalonMethodsOfPaymentRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\HairSalonRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\HairSalonServicesRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\HairSalonWorkingHoursRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\LocationRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\MethodOfPaymentRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\OwnerRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\RegisteredUserRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\ReviewRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\ServiceRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\WorkerRepository.cs" />
+    <Compile Include="Repositories\ModelRepositories\WorkingHourRepository.cs" />
+    <Compile Include="Repositories\Repository.cs" />
+    <Compile Include="Repositories\ModelRepositories\SubscriptionRepository.cs" />
+    <Compile Include="Repositories\UnitOfWork.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202011142323046_InitialCreate.resx">
+      <DependentUpon>202011142323046_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011151826161_CreatedModels.resx">
+      <DependentUpon>202011151826161_CreatedModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011152056165_AddedSubscriptionId.resx">
+      <DependentUpon>202011152056165_AddedSubscriptionId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161240194_AddedRequiredIds.resx">
+      <DependentUpon>202011161240194_AddedRequiredIds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161631054_AddedCityLocationsId.resx">
+      <DependentUpon>202011161631054_AddedCityLocationsId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161636380_AddedCityLocationsIdToCityAndLocation.resx">
+      <DependentUpon>202011161636380_AddedCityLocationsIdToCityAndLocation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011161802163_RemovedManyToManyLocCity.resx">
+      <DependentUpon>202011161802163_RemovedManyToManyLocCity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171142091_RemovedRegisteredUserLocId.resx">
+      <DependentUpon>202011171142091_RemovedRegisteredUserLocId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011171147248_RemovedIds.resx">
+      <DependentUpon>202011171147248_RemovedIds.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011181737518_RefactoredOwner.resx">
+      <DependentUpon>202011181737518_RefactoredOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011201722015_AddedWorkersToOwner.resx">
+      <DependentUpon>202011201722015_AddedWorkersToOwner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011202002276_ResetOwnerHairSalon.resx">
+      <DependentUpon>202011202002276_ResetOwnerHairSalon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011202004446_ConnectedOwnerHairSalon.resx">
+      <DependentUpon>202011202004446_ConnectedOwnerHairSalon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011202018310_ResetOwnerHairSalon2.resx">
+      <DependentUpon>202011202018310_ResetOwnerHairSalon2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011202020305_ConnectedOwnerHairSalon2.resx">
+      <DependentUpon>202011202020305_ConnectedOwnerHairSalon2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011202040390_OwnerHSTweak.resx">
+      <DependentUpon>202011202040390_OwnerHSTweak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011202042224_OwnerHSTweak2.resx">
+      <DependentUpon>202011202042224_OwnerHSTweak2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211155018_ChangedWorkingHourDateTimeToString.resx">
+      <DependentUpon>202011211155018_ChangedWorkingHourDateTimeToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011211352473_AddedTimeStartAndEnd.resx">
+      <DependentUpon>202011211352473_AddedTimeStartAndEnd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231336546_RemovedHairSalonWorkers.resx">
+      <DependentUpon>202011231336546_RemovedHairSalonWorkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231340322_AddedWorkersToHairSalon.resx">
+      <DependentUpon>202011231340322_AddedWorkersToHairSalon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231345325_WorkerHairSalonIsNullable.resx">
+      <DependentUpon>202011231345325_WorkerHairSalonIsNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231953333_RemovedOwnerWorkers.resx">
+      <DependentUpon>202011231953333_RemovedOwnerWorkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011231954402_AddedOwnersWorkers.resx">
+      <DependentUpon>202011231954402_AddedOwnersWorkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241359590_CreatedAppointment.resx">
+      <DependentUpon>202011241359590_CreatedAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202011241601461_FixedAppointment.resx">
+      <DependentUpon>202011241601461_FixedAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101141823445_RemovedAppointmentIsAccDec.resx">
+      <DependentUpon>202101141823445_RemovedAppointmentIsAccDec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101161543331_AddedHairSalonReviews.resx">
+      <DependentUpon>202101161543331_AddedHairSalonReviews.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101161928286_AddedRatingToReview.resx">
+      <DependentUpon>202101161928286_AddedRatingToReview.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101162227290_AddedFavoriteHairSalons.resx">
+      <DependentUpon>202101162227290_AddedFavoriteHairSalons.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101171600452_AddMethodOfPaymentToAppointment.resx">
+      <DependentUpon>202101171600452_AddMethodOfPaymentToAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101171732481_AddedTotalPriceToAppointment.resx">
+      <DependentUpon>202101171732481_AddedTotalPriceToAppointment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101171734581_ChangedTotalPriceToDecimal.resx">
+      <DependentUpon>202101171734581_ChangedTotalPriceToDecimal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202101190833292_AddedDateToReview.resx">
+      <DependentUpon>202101190833292_AddedDateToReview.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.4\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.4\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.4\build\EntityFramework.targets')" />
+</Project>

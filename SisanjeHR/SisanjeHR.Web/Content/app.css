@@ -1,0 +1,28 @@
+﻿/* Navbar */
+.navbar {
+    background-color: #F7F7F7;
+    border-bottom: 1px solid black;
+}
+/* Navbar */
+
+/* Jumbotron */
+.jmb-bg-transparent {
+    background-color: transparent;
+}
+/* Jumbotron */
+
+/* Hair Salon Details */
+.card-fontsize-20 {
+    font-size: 20px;
+}
+
+.columns-fontsize-18 {
+    font-size: 18px;
+}
+/* Hair Salon Details */
+
+/* Registered User Details */
+.card-details-width-100 {
+    width: 110px;
+}
+/* Registered User Details */

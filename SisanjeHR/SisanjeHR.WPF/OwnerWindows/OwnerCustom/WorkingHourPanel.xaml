@@ -1,0 +1,38 @@
+﻿<UserControl x:Class="SisanjeHrDesktopApp.OwnerWindows.OwnerCustom.WorkingHourPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SisanjeHrDesktopApp.OwnerWindows.OwnerCustom"
+             mc:Ignorable="d" 
+             Margin="5" Width="1060" Height="150" Background="Gray">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="450" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="Day in week:" FontSize="25" Margin="0 10 0 10" HorizontalAlignment="Center" />
+            <TextBlock x:Name="LblDayInWeek" FontSize="30" Text="DayInWeek" HorizontalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="Time start:" FontSize="25" Margin="0 10 0 10" HorizontalAlignment="Center" />
+            <TextBlock x:Name="LblTimeStart" FontSize="30" Text="TimeStart" HorizontalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Grid.Column="3" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="Time end:" FontSize="25" Margin="0 10 0 10" HorizontalAlignment="Center" />
+            <TextBlock x:Name="LblTimeEnd" FontSize="30" Text="TimeEnd" HorizontalAlignment="Center" />
+        </StackPanel>
+        
+        <StackPanel Grid.Column="4" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="BtnAdd" Content="Add" FontSize="25" Width="130" Height="50" Margin="2.5 0" Click="BtnAdd_Click" />
+            <Button x:Name="BtnEdit" Content="Edit" FontSize="25" Width="130" Height="50" Margin="2.5 0" Click="BtnEdit_Click" />
+            <Button x:Name="BtnDelete" Content="Delete" FontSize="25" Width="130" Height="50" Margin="2.5 0" Click="BtnDelete_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

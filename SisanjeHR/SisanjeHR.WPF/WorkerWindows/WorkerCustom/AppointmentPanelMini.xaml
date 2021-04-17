@@ -1,0 +1,31 @@
+﻿<UserControl x:Class="SisanjeHrDesktopApp.WorkerWindows.WorkerCustom.AppointmentPanelMini"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SisanjeHrDesktopApp.WorkerWindows.WorkerCustom"
+             mc:Ignorable="d" 
+             Margin="5" Width="850" Height="150" Background="Gray">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="250" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="Time:" FontSize="25" Margin="0 10 0 10" HorizontalAlignment="Center" />
+            <TextBlock x:Name="LblTime" FontSize="30" Text="Time" HorizontalAlignment="Center" />
+        </StackPanel>
+        <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="Worker:" FontSize="25" Margin="0 10 0 10" HorizontalAlignment="Center" />
+            <TextBlock x:Name="LblWorker" FontSize="30" Text="Worker" HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="BtnShow" Content="Show" FontSize="25" Width="130" Height="50" Margin="2.5 0" Click="BtnShow_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

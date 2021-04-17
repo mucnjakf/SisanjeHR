@@ -1,0 +1,48 @@
+﻿@model Utilities.ViewModels.HairSalonViewModels.HairSalonSearchVM
+
+@{
+    ViewBag.Title = "Home";
+}
+
+<!-- Jumbotron -->
+<div>
+    <div class="jumbotron text-center mt-5 jmb-bg-transparent">
+        <h1 class="display-4">Welcome to Sisanje.hr</h1>
+        <p>Good hair reflects your story and your spirit.</p>
+        <button class="btn btn-outline-primary mt-5" onclick="location.href='@Url.Action("Search", "Home")'"><i class="fa fa-rocket" aria-hidden="true"></i> Learn more</button>
+    </div>
+</div>
+<!-- Jumbotron -->
+
+<br />
+
+<!-- Featured Hair Salon Cards -->
+<div>
+    <div class="container card-columns">
+        <div class="card">
+            <div class="card-header text-center">
+                <i>Scissors Razors</i>
+            </div>
+            <div class="card-body">
+                <img src="~/Resources/Images/hairsalon-1.jpg" class="img-thumbnail" alt="Scissors N' Razors">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header text-center">
+                <i>Under the Dryer</i>
+            </div>
+            <div class="card-body">
+                <img src="~/Resources/Images/hairsalon-2.jpg" class="img-thumbnail" alt="Under the Dryer">
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-header text-center">
+                <i>Color Me Crazy</i>
+            </div>
+            <div class="card-body">
+                <img src="~/Resources/Images/hairsalon-3.jpg" class="img-thumbnail" alt="Color Me Crazy">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Featured Hair Salon Cards -->

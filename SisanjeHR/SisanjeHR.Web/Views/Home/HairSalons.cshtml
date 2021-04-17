@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DataAccessLayer.Models.HairSalon>
+@using DataAccessLayer.Models
+
+@{
+    ViewBag.Title = "Hair Salons";
+}
+
+<!-- Hair Salon Table List -->
+<div>
+    @if (Session["RegisteredUser"] != null)
+    {
+        <h1 class="my-5 text-center"><small>Hair salons near @(((RegisteredUser)Session["RegisteredUser"]).GetLocation()) - 10 km</small></h1>
+    }
+    else
+    {
+        <h1 class="my-5 text-center"><small>Hair salons near @Session["SearchQuery"]</small></h1>
+    }
+
+    <div class="container">
+        @if (Model.Any())
+        {
+            <table class="table table-striped table-hover text-center mt-4">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.Name)</th>
+                        <th>@Html.DisplayNameFor(model => model.Description)</th>
+                        <th>@Html.DisplayNameFor(model => model.Location.Address)</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var hairSalon in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => hairSalon.Name)</td>
+                            <td>@Html.DisplayFor(modelItem => hairSalon.Description)</td>
+                            <td>@Html.DisplayFor(modelItem => hairSalon.Location.Address)</td>
+                            <td>
+                                <button type="button" class="btn btn-outline-primary" onclick="location.href='@Url.Action("HairSalonDetails", "Home", new { id = hairSalon.Id })'">
+                                    <i class="fa fa-info-circle" aria-hidden="true"></i> Info
+                                </button>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <hr />
+        }
+        else
+        {
+            <hr />
+            <h2 class="text-center my-5 text-danger font-weight-bold"><small><i>No hair salon found based on your location!</i></small></h2>
+            <hr />
+        }
+
+        @if (Session["RegisteredUser"] == null)
+        {
+            <button class="btn btn-outline-danger float-left" onclick="location.href='@Url.Action("Search", "Home")'"><i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to search</button>
+        }
+    </div>
+</div>
+<!-- Hair Salon Table List -->
