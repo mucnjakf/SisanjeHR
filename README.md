@@ -10,11 +10,11 @@ The idea of Sisanje.hr project is to create a system that will serve web applica
 ---
 
 ### **Tech Stack:**
-- WPF App .NET Framework
-- ASP .NET MVC Web App .NET Framework
-- ASP .NET MVC Web API .NET Framework
+- WPF App .NET Framework 4.8
+- ASP .NET MVC Web App .NET Framework 4.8
+- ASP .NET MVC Web API .NET Framework 4.8
 - Microsoft SQL Server
-- Entity Framework
+- Entity Framework 6
 - XAML & HTML - CSS - JS
 
 ---
