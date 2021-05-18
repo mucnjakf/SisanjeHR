@@ -12,20 +12,20 @@ Web application is for customers to find hair salons and book appointments in on
 ---
 
 ### **Features**
-| Windows desktop application         | Web application                     |
-| ----------------------------------- | ----------------------------------- |
-| Admin - CRUD                        | User registration                   |
-| Owner - CRUD                        | Registered user login               |
-| Worker - CRUD                       | Registered user user profile - CRUD |
-| Registered user - CRUD              | Search hair salons                  |
-| Subscription - CRUD                 | Appointment - CRUD                  |
-| Hair salon - CRUD                   | Hair salon favorite - CRUD          |
-| Hair salon service - CRUD           | Hair salon review - CRUD            |
-| Hair salon method of payment - CRUD |                                     |
-| Hair salon working hour - CRUD      |                                     |
-| Hair salon appointment - CRUD       |                                     |
-| User login                          |                                     |
-| Owner registration                  |                                     |
+| Windows desktop application           | Web application                       |
+| :-----------------------------------: | :-----------------------------------: |
+| Admin - CRUD                          | User registration                     |
+| Owner - CRUD                          | Registered user login                 |
+| Worker - CRUD                         | Registered user user profile - CRUD   |
+| Registered user - CRUD                | Search hair salons                    |
+| Subscription - CRUD                   | Appointment - CRUD                    |
+| Hair salon - CRUD                     | Hair salon favorite - CRUD            |
+| Hair salon service - CRUD             | Hair salon review - CRUD              |
+| Hair salon method of payment - CRUD   |                                       |
+| Hair salon working hour - CRUD        |                                       |
+| Hair salon appointment - CRUD         |                                       |
+| User login                            |                                       |
+| Owner registration                    |                                       |
 
 ---
 
