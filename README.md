@@ -11,7 +11,7 @@ Web application is for customers to find hair salons and book appointments in on
 
 ---
 
-### Features
+### **Features**
 
 Windows desktop application:
 - Admin - CRUD
