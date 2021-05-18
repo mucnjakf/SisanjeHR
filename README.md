@@ -18,14 +18,12 @@ Windows desktop application:
 - Owner - CRUD
 - Worker - CRUD
 - Registered user - CRUD
-
 - Subscription - CRUD
 - Hair salon - CRUD
 - Hair salon service - CRUD
 - Hair salon method of payment - CRUD
 - Hair salon working hour - CRUD
 - Hair salon appointment - CRUD
-
 - User login
 - Owner registration
 
