@@ -1,0 +1,308 @@
+﻿@using DataAccessLayer.Models
+@model DataAccessLayer.Models.HairSalon
+
+@{
+    ViewBag.Title = Model.Name;
+
+    RegisteredUser registeredUser = (RegisteredUser)Session["RegisteredUser"];
+
+    bool isAuthorized = false;
+    bool isFavorited = false;
+
+    if (registeredUser != null)
+    {
+        isAuthorized = true;
+
+        isFavorited = Model.FavoriteHairSalons.Any(fhs => fhs.HairSalonId == Model.Id && fhs.RegisteredUserId == registeredUser.Id);
+    }
+}
+
+<!-- Hair Salon Basic Details -->
+<div>
+    <div class="container text-center mt-5">
+        <h4 class="display-4 mb-3">@Model.Name</h4>
+
+        @if (isAuthorized)
+        {
+            if (!isFavorited)
+            {
+                using (Html.BeginForm("FavoriteHairSalon", "Home", new { id = Model.Id }, FormMethod.Post))
+                {
+                    <button type="submit" class="btn btn-outline-success">
+                        <i class="fa fa-heart-o" aria-hidden="true"></i> Favorite
+                    </button>
+                }
+            }
+            else
+            {
+                using (Html.BeginForm("UnfavoriteHairSalon", "Home", new { id = Model.Id }))
+                {
+                    @Html.HttpMethodOverride(HttpVerbs.Delete)
+                    <button type="submit" class="btn btn-outline-danger">
+                        <i class="fa fa-trash-o" aria-hidden="true"></i> Unfavorite
+                    </button>
+                }
+            }
+
+        }
+
+        <div class="card card-fontsize-20 border-dark mt-5">
+            <div class="card-header">
+                <p class="mt-3">@Model.Description</p>
+            </div>
+            <div class="card-body mb-3">
+                <div class="row">
+                    <div class="col-5 text-right"><i class="fa fa-map-marker" aria-hidden="true"></i></div>
+                    <div class="col-7 text-left">@Model.Location.GetFormatedLocation()</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 text-right"><i class="fa fa-user-o" aria-hidden="true"></i></div>
+                    <div class="col-7 text-left">@Model.Owner.GetFullName()</div>
+                </div>
+                <div class="row">
+                    <div class="col-5 text-right"><i class="fa fa-envelope-o" aria-hidden="true"></i></div>
+                    <div class="col-7 text-left">@Model.Owner.Email</div>
+                </div>
+            </div>
+        </div>
+
+        <button type="button" class="btn btn-outline-success mt-3" onclick="location.href = '@Url.Action("Create", "Appointment", new { hairSalonId = Model.Id })'">
+            <i class="fa fa-plus-square-o" aria-hidden="true"></i> Create appointment
+        </button>
+    </div>
+</div>
+<!-- Hair Salon Basic Details -->
+
+<hr class="my-5" />
+
+<!-- Hair Salon Details Columns -->
+<div>
+    <div class="container-fluid text-center columns-fontsize-18">
+        <div class="row">
+            <div class="col-3">
+                <h3><small>Workers</small></h3>
+                <ul class="list-group w-100 mx-auto justify-content-center">
+                    @if (Model.Workers.Any())
+                    {
+                        foreach (var worker in Model.Workers)
+                        {
+                            <li class="list-group-item list-group-item-action">@worker.GetFullName() <br> <i class="fa fa-phone" aria-hidden="true"></i> @worker.PhoneNumber</li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item list-group-item-danger"><i><i class="fa fa-exclamation-circle" aria-hidden="true"></i> No workers to show</i></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-3">
+                <h3><small>Services</small></h3>
+                <ul class="list-group w-100 mx-auto justify-content-center">
+                    @if (Model.HairSalonServices.Any())
+                    {
+                        foreach (var hss in Model.HairSalonServices)
+                        {
+                            <li class="list-group-item list-group-item-action">@hss.Service.Name <br> <i class="fa fa-money" aria-hidden="true"></i> @hss.Service.Price</li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item list-group-item-danger"><i><i class="fa fa-exclamation-circle" aria-hidden="true"></i> No services to show</i></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-3">
+                <h3><small>Methods of payment</small></h3>
+                <ul class="list-group w-100 mx-auto justify-content-center">
+                    @if (Model.HairSalonMethodsOfPayment.Any())
+                    {
+                        foreach (var mop in Model.HairSalonMethodsOfPayment)
+                        {
+                            <li class="list-group-item list-group-item-action"><i class="fa fa-shopping-cart" aria-hidden="true"></i> @mop.MethodOfPayment.Method</li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item list-group-item-danger"><i><i class="fa fa-exclamation-circle" aria-hidden="true"></i> No methods of payment to show</i></li>
+                    }
+                </ul>
+            </div>
+            <div class="col-3">
+                <h3><small>Working hours</small></h3>
+                <ul class="list-group w-100 mx-auto justify-content-center">
+                    @if (Model.HairSalonWorkingHours.Any())
+                    {
+                        foreach (var hswh in Model.HairSalonWorkingHours)
+                        {
+                            <li class="list-group-item list-group-item-action"><i class="fa fa-clock-o" aria-hidden="true"></i> @hswh.WorkingHour.DayInWeek <br> @hswh.WorkingHour.TimeStart.ToString("hh':'mm") - @hswh.WorkingHour.TimeEnd.ToString("hh':'mm")</li>
+                        }
+                    }
+                    else
+                    {
+                        <li class="list-group-item list-group-item-danger"><i><i class="fa fa-exclamation-circle" aria-hidden="true"></i> No working hours to show</i></li>
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Hair Salon Details Columns -->
+
+<hr class="my-5">
+
+<!-- Hair Salon Reviews -->
+@{
+    bool showRating = false;
+    double avgRating = Model.GetAverageRating();
+    if (avgRating > 0) { showRating = true; }
+}
+
+<div>
+    <div class="container text-center columns-fontsize-18">
+        <h1 class="text-center mb-3"><small>Reviews - @Model.Reviews.Count</small></h1>
+        <hr class="w-25" />
+
+        @if (showRating)
+        {
+            <h2 class="text-center mb-3">
+                <small>
+                    Average rating: @avgRating
+                </small>
+            </h2>
+        }
+
+        @if (avgRating == 1)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        }
+        else if (avgRating > 1 && avgRating < 2)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        }
+        else if (avgRating == 2)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        }
+        else if (avgRating > 2 && avgRating < 3)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        }
+        else if (avgRating == 3)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        }
+        else if (avgRating > 3 && avgRating < 4)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        }
+        else if (avgRating == 4)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+        }
+        else if (avgRating > 4 && avgRating < 5)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+
+            <i class="fa fa-star-half-o" aria-hidden="true"></i>
+        }
+        else if (avgRating == 5)
+        {
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+            <i class="fa fa-star" aria-hidden="true"></i>
+        }
+        else
+        {
+            <span>No ratings!</span>
+        }
+
+        <hr class="w-25" />
+
+        <button class="btn btn-outline-primary mb-3" onclick="location.href='@Url.Action("Create", "Review", new { Model.Id })'">
+            <i class="fa fa-star-o" aria-hidden="true"></i> Write a review
+        </button>
+
+        <ul class="list-group w-75 mx-auto justify-content-center">
+            @if (Model.Reviews.Any())
+            {
+                foreach (Review review in Model.Reviews)
+                {
+                    <li class="list-group-item list-group-item-action text-break" style="font-family: Arial, FontAwesome;">
+                        @review.Content
+                        <br />- <i> @review.RegisteredUser.GetFullName() rated</i>
+                        @{
+                            switch (review.Rating)
+                            {
+                                case 1:
+                                    <span><i>1</i> &#xf005;</span>
+                                    break;
+                                case 2:
+                                    <span><i>2</i> &#xf005;</span>
+                                    break;
+                                case 3:
+                                    <span><i>3</i> &#xf005;</span>
+                                    break;
+                                case 4:
+                                    <span><i>4</i> &#xf005;</span>
+                                    break;
+                                case 5:
+                                    <span><i>5</i> &#xf005;</span>
+                                    break;
+                            }
+                        }
+                        <i>on @review.Date.ToShortDateString()</i>
+                    </li>
+                }
+            }
+            else
+            {
+                <li class="list-group-item list-group-item-danger mb-5"><i><i class="fa fa-exclamation-circle" aria-hidden="true"></i> No reviews to show</i></li>
+            }
+        </ul>
+    </div>
+</div>
+<!-- Hair Salon Reviews -->
+<hr class="my-5" />

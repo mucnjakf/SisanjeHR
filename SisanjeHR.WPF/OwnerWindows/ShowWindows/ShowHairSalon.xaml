@@ -1,0 +1,118 @@
+﻿<Window x:Class="SisanjeHrDesktopApp.OwnerWindows.ShowWindows.ShowHairSalon"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SisanjeHrDesktopApp.OwnerWindows.ShowWindows"
+        mc:Ignorable="d"
+        FontSize="25"
+        Background="#121212"
+        Foreground="White"
+	    Title="Show Hair Salon" Height="1080" Width="1920" WindowState="Maximized" Activated="Window_Activated">
+    <StackPanel Orientation="Vertical">
+
+        <TextBlock Text="Hair Salon" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 20 0 0" FontSize="35" />
+
+        <Border  BorderBrush="White" BorderThickness="1" Height="850" Width="1700" Margin="0 20 0 0">
+            <TabControl HorizontalAlignment="Center" VerticalAlignment="Center" Height="850" Width="1700" Background="Transparent">
+
+                <TabItem Header="Details / Methods of Payment / Working Hours" Width="848">
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderBrush="white" BorderThickness="1" Width="841" HorizontalAlignment="Left" Margin="3">
+                            <StackPanel HorizontalAlignment="Center">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="auto" />
+                                        <RowDefinition Height="*" />
+                                    </Grid.RowDefinitions>
+
+                                    <TextBlock Grid.Column="1" Grid.Row="0" Grid.ColumnSpan="2" Text="Details" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0 100 0 50" FontSize="35" Foreground="White" />
+
+                                    <TextBlock Grid.Column="1" Grid.Row="1" Text="Id:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White" />
+                                    <TextBlock Grid.Column="1" Grid.Row="2" Text="Name:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="3" Text="Description:" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="4" Text="Address:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="5" Text="City:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="6" Text="Country:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="1" Grid.Row="7" Text="Owner:" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+
+                                    <TextBlock Grid.Column="2" Grid.Row="1" x:Name="LblId" Text="Id" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White" />
+                                    <TextBlock Grid.Column="2" Grid.Row="2" x:Name="LblName" Text="Name" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="2" Grid.Row="3" x:Name="LblDescription" Text="Description" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <!--<TextBlock Grid.Column="2" Grid.Row="3" x:Name="TbDescription" Height="125" Width="300" Margin="10" TextWrapping="Wrap" Foreground="White" Text="This is a rich box description for showcasing!" />-->
+                                    <TextBlock Grid.Column="2" Grid.Row="4" x:Name="LblAddress" Text="Address" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="2" Grid.Row="5" x:Name="LblCity" Text="City" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="2" Grid.Row="6" x:Name="LblCountry" Text="Country" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                    <TextBlock Grid.Column="2" Grid.Row="7" x:Name="LblOwner" Text="Owner" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="10" Foreground="White"/>
+                                </Grid>
+                            </StackPanel>
+                        </Border>
+
+                        <Border BorderBrush="White" BorderThickness="1" Width="841" HorizontalAlignment="Left" Margin="3">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock Text="Methods of payment" Foreground="White" Margin="0 20" />
+                                <ListBox Width="700" Height="270" x:Name="LbMethodsOfPayment" Background="Transparent" Foreground="White" />
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Add method of payment" x:Name="BtnAddMethodOfPayment" Margin="0 5 2 0" Width="348" FontSize="20" HorizontalAlignment="Left" Click="BtnAddMethodOfPayment_Click" />
+                                    <Button Content="Remove selected method of payment" x:Name="BtnRemoveSelectedMethodOfPayment" Margin="2 5 0 0" Width="348" FontSize="20" HorizontalAlignment="Left" Click="BtnRemoveSelectedMethodOfPayment_Click" />
+                                </StackPanel>
+
+                                <TextBlock Text="Working hours" Foreground="White" Margin="0 20" />
+                                <ListBox Width="700" Height="270" x:Name="LbWorkingHours" Background="Transparent" Foreground="White" />
+                                
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Add working hour" x:Name="BtnAddWorkingHour" Margin="0 5 2 0" Width="348" FontSize="20" HorizontalAlignment="Left" Click="BtnAddWorkingHour_Click" />
+                                    <Button Content="Remove selected working hour" x:Name="BtnRemoveSelectedWorkingHour" Margin="2 5 0 0" Width="348" FontSize="20" HorizontalAlignment="Left" Click="BtnRemoveSelectedWorkingHour_Click" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+
+                <TabItem Header="Workers / Services" Width="848">
+                    <StackPanel Orientation="Horizontal">
+                        <Border BorderBrush="white" BorderThickness="1" Width="841" HorizontalAlignment="Left" Margin="3">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock Text="Workers" Foreground="White" Margin="0 20" />
+                                <ListBox Width="700" Height="650" x:Name="LbWorkers" Background="Transparent" Foreground="White" />
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Add worker" x:Name="BtnAddWorker" Width="345" FontSize="20" Margin="0 5 5 0" Click="BtnAddWorker_Click" />
+                                    <Button Content="Remove selected worker" x:Name="BtnRemoveSelectedWorker" Width="345" FontSize="20" Margin="5 5 0 0 " Click="BtnRemoveSelectedWorker_Click" />
+                                </StackPanel>
+                                
+                            </StackPanel>
+                        </Border>
+                        <Border BorderBrush="white" BorderThickness="1" Width="841" HorizontalAlignment="Left" Margin="3">
+                            <StackPanel HorizontalAlignment="Center">
+                                <TextBlock Text="Services" Foreground="White" Margin="0 20" />
+                                <ListBox Width="700" Height="650" x:Name="LbServices" Background="Transparent" Foreground="White" />
+
+                                <StackPanel Orientation="Horizontal">
+                                    <Button Content="Add service" x:Name="BtnAddService" Width="345" FontSize="20" Margin="0 5 5 0" Click="BtnAddService_Click" />
+                                    <Button Content="Remove selected service" x:Name="BtnRemoveSelectedService" Width="345" FontSize="20" Margin="5 5 0 0 " Click="BtnRemoveSelectedService_Click" />
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+                    </StackPanel>
+                </TabItem>
+            </TabControl>
+        </Border>
+        <Button x:Name="BtnClose" Content="Close" Width="200" Height="40" FontSize="20" Margin="0 20" Click="BtnClose_Click" />
+    </StackPanel>
+</Window>

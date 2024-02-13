@@ -1,0 +1,167 @@
+﻿@using DataAccessLayer.Models
+@model Utilities.ViewModels.AppointmentViewModels.AppointmentInsertVM
+@{
+    ViewBag.Title = "Create Appointment";
+
+    bool isAuthorized = false;
+
+    if ((RegisteredUser)Session["RegisteredUser"] != null)
+    {
+        isAuthorized = true;
+    }
+}
+
+@if (isAuthorized)
+{
+    <!-- Create Appointment Form -->
+    <div id="alert"></div>
+
+    if (ViewBag.Unavailable == "unavailable")
+    {
+        <div class="alert alert-danger alert-dismissible fade show">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            Appointment unavailable!
+        </div>
+    }
+
+    <div>
+        <h1 class="text-center my-5"><small>Create appointment</small></h1>
+        <div class="container my-5 w-25">
+            @using (Html.BeginForm("Create", "Appointment", FormMethod.Post))
+            {
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Date, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Date, new { htmlAttributes = new { @class = "form-control", type = "date" } })
+                    @Html.ValidationMessageFor(model => model.Date, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Time, htmlAttributes: new { @class = "control-label" })
+                    @Html.EditorFor(model => model.Time, new { htmlAttributes = new { @class = "form-control", type = "time" } })
+                    @Html.ValidationMessageFor(model => model.Time, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedMethodOfPayment, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.SelectedMethodOfPaymentId, Model.MethodsOfPayment, new { @id = "payment-placeholder", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SelectedMethodOfPaymentId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedWorker, htmlAttributes: new { @class = "control-label" })
+                    @Html.DropDownListFor(model => model.SelectedWorkerId, Model.Workers, new { @id = "worker-placeholder", @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.SelectedWorkerId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.SelectedService, htmlAttributes: new { @class = "control-label" })
+                    <div class="input-group">
+                        @Html.DropDownListFor(model => model.SelectedService, Model.AvailableServices, new { @id = "selectServices", @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.SelectedService, "", new { @class = "text-danger" })
+
+                        <button type="button" id="testBtn" class="btn btn-outline-success ml-1" onclick="addItem()">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <ul class="list-inline mx-auto justify-content-center" id="ulServices"></ul>
+                </div>
+
+                <div id="hiddenIds" class="form-group"></div>
+
+                <div class="form-group">
+                    @Html.HiddenFor(model => model.HairSalonId)
+                </div>
+
+                <div class="form-group mt-3">
+                    <button id="submitButton" type="submit" class="btn btn-outline-primary btn-block" onclick="validateServices()" disabled><i class="fa fa-plus-square" aria-hidden="true"></i> Create</button>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- Create Appointment Form -->
+}
+else
+{
+    <!-- Login Requirement Message -->
+    <br />
+    <div class="mt-5">
+        <hr />
+        <h2 class="text-center my-5 text-danger font-weight-bold"><small><i>You must be logged in before creating appointment!</i></small></h2>
+        <hr />
+    </div>
+    <!-- Login Requirement Message -->
+}
+
+<!-- JS -->
+<script>
+    $("#worker-placeholder").prepend("<option value='' disabled selected>Select worker</option>");
+    $("#payment-placeholder").prepend("<option value='' disabled selected>Select payment</option>");
+    $("#selectServices").prepend("<option value='select service' disabled selected>Select service</option>");
+
+    function addItem() {
+        let select = document.getElementById("selectServices");
+
+        let id = select.value;
+        if (id == "select service") return;
+
+        let text = select.options[select.selectedIndex].text;
+
+        let ul = document.getElementById("ulServices");
+
+        let element = document.getElementById(id);
+
+        if (typeof (element) != "undefined" && element != null) {
+            let alert = document.getElementById("alert");
+            alert.innerHTML =
+                `<div id="bsAlert" class="alert alert-danger alert-dismissible fade show">
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+                You have already selected that service!</div>`;
+
+            return;
+        }
+
+        let li = document.createElement("li");
+        li.className = "list-group-item list-group-item-action d-flex justify-content-between align-items-center";
+
+        let button = document.createElement("button");
+        button.innerHTML = "<i class='fa fa-minus'></i>";
+        button.className = "btn btn-outline-danger";
+
+        let hiddenIds = document.getElementById("hiddenIds");
+
+        button.onclick = function () {
+            let ulItem = document.getElementById(id);
+            ul.removeChild(ulItem);
+
+            let hiddenItem = document.getElementById("SelectedServices" + id);
+            hiddenIds.removeChild(hiddenItem);
+
+            if (ul.getElementsByTagName("li").length == 0) {
+                submitButton.disabled = true;
+            }
+        }
+
+        li.setAttribute("id", id);
+        li.appendChild(document.createTextNode(text));
+        li.appendChild(button);
+
+        ul.appendChild(li);
+
+        let hiddenInput = document.createElement("input");
+        hiddenInput.setAttribute("id", "SelectedServices" + id);
+        hiddenInput.setAttribute("name", "SelectedServices")
+        hiddenInput.setAttribute("type", "hidden");
+        hiddenInput.setAttribute("value", id);
+
+        hiddenIds.appendChild(hiddenInput);
+
+        let submitButton = document.getElementById("submitButton");
+
+        if (ul.getElementsByTagName("li").length > 0) {
+            submitButton.disabled = false;
+        }
+    }
+</script>

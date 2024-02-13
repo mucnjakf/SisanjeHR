@@ -1,0 +1,26 @@
+﻿<Window x:Class="SisanjeHrDesktopApp.SharedWindows.Start"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SisanjeHrDesktopApp.SharedWindows"
+        mc:Ignorable="d"
+        Background="#121212"
+        Foreground="White"
+        Title="Start" Height="700" Width="550" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize">
+    <Grid>
+        <StackPanel>           
+            <TextBlock Text="Welcome to Sisanje.hr" FontSize="40" Margin="0 70 0 10" HorizontalAlignment="Center" />
+
+            <TextBlock Text="Login as" FontSize="30" Margin="0 60 0 5" HorizontalAlignment="Center" />
+
+            <Button x:Name="BtnAdmin" Content="Admin" FontSize="30" Height="50" Width="200" Margin="10" Click="BtnAdmin_Click" />
+
+            <Button x:Name="BtnOwner" Content="Owner" FontSize="30" Height="50" Width="200" Margin="10" Click="BtnOwner_Click" />
+
+            <Button x:Name="BtnWorker" Content="Worker" FontSize="30" Height="50" Width="200" Margin="10" Click="BtnWorker_Click" />
+
+            <Button x:Name="BtnExitMain" Click="BtnExitMain_Click" Width="150" Height="50" Content="Exit" FontSize="24" Margin="0 100" />
+        </StackPanel>
+    </Grid>
+</Window>

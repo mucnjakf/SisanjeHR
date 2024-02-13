@@ -1,0 +1,65 @@
+﻿@using DataAccessLayer.Models
+@model Utilities.ViewModels.ReviewViewModels.ReviewInsertVM
+@{
+    ViewBag.Title = "Create Review";
+
+    bool isAuthorized = false;
+
+    if ((RegisteredUser)Session["RegisteredUser"] != null)
+    {
+        isAuthorized = true;
+    }
+}
+
+@if (isAuthorized)
+{
+    <!-- Create Review Form -->
+    <div>
+        <h1 class="text-center my-5"><small>Create Review</small></h1>
+        <div class="container my-5 w-25">
+            @using (Html.BeginForm("Create", "Review", FormMethod.Post))
+            {
+                @Html.HiddenFor(model => model.HairSalonId)
+
+                <div class="text-center">
+                    <h3><small>@Model.HairSalon.Name</small></h3>
+                    <hr />
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label" for="rating">Rating:</label>
+
+                    <select name="Rating" class="form-control" id="rating" style="font-family: Arial, FontAwesome;" required>
+                        <option value="1">&#xf005; &#xf006; &#xf006; &#xf006; &#xf006; Terrible</option>
+                        <option value="2">&#xf005; &#xf005;  &#xf006; &#xf006; &#xf006; Bad</option>
+                        <option selected value="3">&#xf005; &#xf005; &#xf005; &#xf006; &#xf006; Average</option>
+                        <option value="4">&#xf005; &#xf005; &#xf005; &#xf005; &#xf006; Good</option>
+                        <option value="5">&#xf005; &#xf005; &#xf005; &#xf005; &#xf005; Excellent</option>
+                    </select>
+                </div>
+
+                <div class="form-group mt-3">
+                    @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label" })
+                    @Html.TextAreaFor(model => model.Content, new { @class = "form-control", rows = 10 })
+                    @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group mt-3">
+                    <button id="submitButton" type="submit" class="btn btn-outline-primary btn-block"><i class="fa fa-plus-square" aria-hidden="true"></i> Create</button>
+                </div>
+            }
+        </div>
+    </div>
+    <!-- Edit Review Form -->
+}
+else
+{
+    <!-- Login Requirement Message -->
+    <br />
+    <div class="mt-5">
+        <hr />
+        <h2 class="text-center my-5 text-danger font-weight-bold"><small><i>You must be logged in before creating review!</i></small></h2>
+        <hr />
+    </div>
+    <!-- Login Requirement Message -->
+}

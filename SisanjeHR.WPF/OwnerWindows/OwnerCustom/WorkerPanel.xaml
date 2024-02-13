@@ -1,0 +1,34 @@
+﻿<UserControl x:Class="SisanjeHrDesktopApp.OwnerWindows.OwnerCustom.WorkerPanel"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:SisanjeHrDesktopApp.OwnerWindows.OwnerCustom"
+             mc:Ignorable="d" 
+             Margin="5" Width="1130" Height="150" Background="Gray">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="500" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="First name:" FontSize="25" Margin="0 10 0 10" HorizontalAlignment="Center" />
+            <TextBlock x:Name="LblFirstName" FontSize="30" Text="FirstName" HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="2" Orientation="Vertical" HorizontalAlignment="Center">
+            <TextBlock Text="Last name:" FontSize="25" Margin="0 10 0 10" HorizontalAlignment="Center" />
+            <TextBlock x:Name="LblLastName" FontSize="30" Text="LastName" HorizontalAlignment="Center" />
+        </StackPanel>
+
+        <StackPanel Grid.Column="3" Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
+            <Button x:Name="BtnShow" VerticalAlignment="Center" Content="Show" FontSize="25" Margin="2.5 0" Width="130" Height="50" Click="BtnShow_Click" />
+            <Button x:Name="BtnEdit" VerticalAlignment="Center" Content="Edit" FontSize="25" Margin="2.5 0" Width="130" Height="50" Click="BtnEdit_Click" />
+            <Button x:Name="BtnDelete" VerticalAlignment="Center" Content="Delete" FontSize="25" Margin="2.5 0" Width="130" Height="50" Click="BtnDelete_Click" />
+        </StackPanel>
+    </Grid>
+</UserControl>

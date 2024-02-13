@@ -1,0 +1,257 @@
+﻿@using DataAccessLayer.Models
+@model DataAccessLayer.Models.RegisteredUser
+
+@{
+    ViewBag.Title = "User Profile";
+}
+
+<!-- Registered User Details -->
+<div>
+    @if (Model != null)
+    {
+        <h1 class="text-center my-5"><small>User Profile</small></h1>
+
+        <div class="container text-center w-50">
+            <div class="card">
+                <div class="card-header">
+                    <h2><small>@Model.GetFullName()</small></h2>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-6 text-right font-weight-bold">Username:</div>
+                        <div class="col-6 text-left">@Model.Username</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-right font-weight-bold">Email:</div>
+                        <div class="col-6 text-left">@Model.Email</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-right font-weight-bold">Address:</div>
+                        <div class="col-6 text-left">@Model.Location.Address</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-right font-weight-bold">City:</div>
+                        <div class="col-6 text-left">@Model.Location.City.Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-right font-weight-bold">Country:</div>
+                        <div class="col-6 text-left">@Model.Location.City.Country.Name</div>
+                    </div>
+                    <div class="row">
+                        <div class="col-6 text-right mt-4">
+                            <button type="button" class="btn btn-outline-success card-details-width-100" onclick="location.href = '@Url.Action("EditProfile", "Account", new { id = Model.Id })'">
+                                <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                            </button>
+                        </div>
+                        <div class="col-6 text-left mt-4">
+                            <button type="button" class="btn btn-outline-danger card-details-width-100" onclick="confirmDeleteProfile()">
+                                <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <hr class="my-5" />
+
+        <h1 class="text-center mb-5"><small>My Hair Salon Appointments</small></h1>
+
+        <div class="container-fluid" style="width: 1500px;">
+            @if (Enumerable.Any(ViewBag.Appointments))
+            {
+                <table class="table table-striped table-hover text-center mt-4">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Time</th>
+                            <th>Hair Salon</th>
+                            <th>Worker</th>
+                            <th>Total price</th>
+                            <th>Completed</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var appointment in ViewBag.Appointments)
+                        {
+                            <tr>
+                                <td>@appointment.Date.ToShortDateString()</td>
+                                <td>@appointment.Time</td>
+                                <td>@appointment.HairSalon.Name</td>
+                                <td>@($"{appointment.Worker.FirstName} {appointment.Worker.LastName}")</td>
+                                <td>$@appointment.TotalPrice</td>
+                                <td>
+                                    <div>
+                                        @if (appointment.IsCompleted)
+                                        {
+                                            <i class="fa fa-check-square text-success" aria-hidden="true"></i>
+                                        }
+                                        else
+                                        {
+                                            <i class="fa fa-window-close text-danger" aria-hidden="true"></i>
+                                        }
+                                    </div>
+                                </td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-primary" onclick="location.href='@Url.Action("Details", "Appointment", new { id = appointment.Id })'">
+                                        <i class="fa fa-info-circle" aria-hidden="true"></i> Info
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="location.href='@Url.Action("HairSalonDetails", "Home", new { id = appointment.HairSalonId })'">
+                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <hr />
+            }
+            else
+            {
+                <div class="text-center">
+                    <hr />
+                    <h3 class="my-3 text-danger font-weight-bold"><small><i>You don't have any appointments!</i></small></h3>
+                    <hr />
+                    <button class="my-3 btn btn-outline-primary" onclick="location.href='@Url.Action("Search", "Home")'">Find hair salons and book appointment</button>
+                </div>
+            }
+        </div>
+
+        <hr class="my-5" />
+
+        <h1 class="text-center mb-5"><small>My Favorite Hair Salons</small></h1>
+
+        <div class="container-fluid" style="width: 1500px;">
+            @if (Enumerable.Any(ViewBag.FavoriteHairSalons))
+            {
+                <table class="table table-striped table-hover text-center mt-4">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Address</th>
+                            <th>Owner</th>
+                            <th>Average rating</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var favoriteHairSalon in ViewBag.FavoriteHairSalons)
+                        {
+                            <tr>
+                                <td>@favoriteHairSalon.HairSalon.Name</td>
+                                <td>@favoriteHairSalon.HairSalon.Description</td>
+                                <td>@favoriteHairSalon.HairSalon.Location.GetFormatedLocation()</td>
+                                <td>@favoriteHairSalon.HairSalon.Owner.GetFullName()</td>
+                                <td>@favoriteHairSalon.HairSalon.GetAverageRating()</td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-primary" onclick="location.href='@Url.Action("HairSalonDetails", "Home", new { id = favoriteHairSalon.HairSalonId })'">
+                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <hr />
+            }
+            else
+            {
+                <div class="text-center">
+                    <hr />
+                    <h3 class="my-3 text-danger font-weight-bold"><small><i>You don't have any favorite hair salons!</i></small></h3>
+                    <hr />
+                    <button class="my-3 btn btn-outline-primary" onclick="location.href='@Url.Action("Search", "Home")'">Find hair salons and favorite them</button>
+
+                </div>
+            }
+        </div>
+
+        <hr class="my-5" />
+
+        <h1 class="text-center mb-5"><small>My Hair Salon Reviews</small></h1>
+
+        <div class="container-fluid" style="width: 1500px;">
+            @if (Enumerable.Any(ViewBag.Reviews))
+            {
+                <table class="table table-striped table-hover text-center" style="font-family: Arial, FontAwesome;">
+                    <thead>
+                        <tr>
+                            <th>Content</th>
+                            <th>Hair Salon</th>
+                            <th>Rating</th>
+                            <th>Date</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var review in ViewBag.Reviews)
+                        {
+                            <tr>
+                                <td class="text-break" style="width: 700px;">@review.Content</td>
+                                <td>@review.HairSalon.Name</td>
+                                <td>
+                                    @if (review.Rating == 1)
+                                    {
+                                        <span>1 &#xf005;</span>
+                                    }
+                                    else if (review.Rating == 2)
+                                    {
+                                        <span>2 &#xf005;</span>
+                                    }
+                                    else if (review.Rating == 3)
+                                    {
+                                        <span>3 &#xf005;</span>
+                                    }
+                                    else if (review.Rating == 4)
+                                    {
+                                        <span>4 &#xf005;</span>
+                                    }
+                                    else if (review.Rating == 5)
+                                    {
+                                        <span>5 &#xf005;</span>
+                                    }
+                                </td>
+                                <td>@review.Date.ToShortDateString()</td>
+                                <td>
+                                    <button type="button" class="btn btn-outline-success" onclick="location.href='@Url.Action("Edit", "Review", new { id = review.Id })'">
+                                        <i class="fa fa-pencil-square-o" aria-hidden="true"></i> Edit
+                                    </button>
+                                    <button type="button" class="btn btn-outline-danger" onclick="location.href='@Url.Action("Delete", "Review", new { id = review.Id })'">
+                                        <i class="fa fa-trash-o" aria-hidden="true"></i> Delete
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary" onclick="location.href = '@Url.Action("HairSalonDetails", "Home", new { id = review.HairSalonId })'">
+                                        <i class="fa fa-external-link" aria-hidden="true"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                <hr />
+            }
+            else
+            {
+                <div class="text-center">
+                    <hr />
+                    <h3 class="my-3 text-danger font-weight-bold"><small><i>You don't have any reviews!</i></small></h3>
+                    <hr />
+                    <button class="my-3 btn btn-outline-primary" onclick="location.href='@Url.Action("Search", "Home")'">Find hair salons and create review</button>
+
+                </div>
+            }
+        </div>
+    }
+    <br />
+</div>
+<!-- Registered User Details -->
+<!-- JS -->
+<script>
+    function confirmDeleteProfile() {
+        var result = confirm("Deleting your profile will remove all of your information. Are you sure?");
+        if (result) {
+            location.href = '@Url.Action("DeleteProfile", "Account", new { id = Model.Id })';
+        }
+    }
+</script>

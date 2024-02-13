@@ -1,0 +1,500 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{24E6E2BA-A046-4FFA-97E1-17B868E79645}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>SisanjeHrDesktopApp</RootNamespace>
+    <AssemblyName>SisanjeHrDesktopApp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.7\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="Xceed.Wpf.AvalonDock, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Aero, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Aero.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.Metro, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.AvalonDock.Themes.VS2010, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.AvalonDock.Themes.VS2010.dll</HintPath>
+    </Reference>
+    <Reference Include="Xceed.Wpf.Toolkit, Version=4.0.0.0, Culture=neutral, PublicKeyToken=3e4669d2f30244f4, processorArchitecture=MSIL">
+      <HintPath>..\packages\Extended.Wpf.Toolkit.4.0.1\lib\net40\Xceed.Wpf.Toolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="AdminWindows\AddNewWindows\AddNewAdmin.xaml.cs">
+      <DependentUpon>AddNewAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AddNewWindows\AddNewOwner.xaml.cs">
+      <DependentUpon>AddNewOwner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AddNewWindows\AddNewRegisteredUser.xaml.cs">
+      <DependentUpon>AddNewRegisteredUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AddNewWindows\AddNewSubscription.xaml.cs">
+      <DependentUpon>AddNewSubscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AdminCustom\AdminPanel.xaml.cs">
+      <DependentUpon>AdminPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AdminCustom\OwnerPanel.xaml.cs">
+      <DependentUpon>OwnerPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AdminCustom\RegisteredUserPanel.xaml.cs">
+      <DependentUpon>RegisteredUserPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AdminCustom\SubscriptionPanel.xaml.cs">
+      <DependentUpon>SubscriptionPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\AdminMainMenu.xaml.cs">
+      <DependentUpon>AdminMainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\EditWindows\EditAdmin.xaml.cs">
+      <DependentUpon>EditAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\AddNewWindows\AddNewService.xaml.cs">
+      <DependentUpon>AddNewService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\AddNewWindows\AddNewWorkingHour.xaml.cs">
+      <DependentUpon>AddNewWorkingHour.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\EditWindows\EditMethodOfPayment.xaml.cs">
+      <DependentUpon>EditMethodOfPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\EditWindows\EditOwner.xaml.cs">
+      <DependentUpon>EditOwner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\EditWindows\EditRegisteredUser.xaml.cs">
+      <DependentUpon>EditRegisteredUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\EditWindows\EditSubscription.xaml.cs">
+      <DependentUpon>EditSubscription.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\ManagementWindows\AdminManagement.xaml.cs">
+      <DependentUpon>AdminManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\ManagementWindows\OwnerManagement.xaml.cs">
+      <DependentUpon>OwnerManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\ManagementWindows\RegisteredUserManagement.xaml.cs">
+      <DependentUpon>RegisteredUserManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\ManagementWindows\SubscriptionsManagement.xaml.cs">
+      <DependentUpon>SubscriptionsManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\ShowWindows\ShowOwner.xaml.cs">
+      <DependentUpon>ShowOwner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminWindows\ShowWindows\ShowRegisteredUser.xaml.cs">
+      <DependentUpon>ShowRegisteredUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="OwnerWindows\AddNewWindows\AddNewHairSalon.xaml.cs">
+      <DependentUpon>AddNewHairSalon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\AddNewWindows\AddNewMethodOfPayment.xaml.cs">
+      <DependentUpon>AddNewMethodOfPayment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\AddNewWindows\AddNewWorker.xaml.cs">
+      <DependentUpon>AddNewWorker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\AddNewWindows\RegisterOwner.xaml.cs">
+      <DependentUpon>RegisterOwner.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\EditWindows\EditHairSalon.xaml.cs">
+      <DependentUpon>EditHairSalon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\EditWindows\EditService.xaml.cs">
+      <DependentUpon>EditService.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\EditWindows\EditWorker.xaml.cs">
+      <DependentUpon>EditWorker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\EditWindows\EditWorkingHour.xaml.cs">
+      <DependentUpon>EditWorkingHour.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\ManagementWindows\HairSalonManagement.xaml.cs">
+      <DependentUpon>HairSalonManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\ManagementWindows\MethodOfPaymentManagement.xaml.cs">
+      <DependentUpon>MethodOfPaymentManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\ManagementWindows\ServiceManagement.xaml.cs">
+      <DependentUpon>ServiceManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\ManagementWindows\WorkerManagement.xaml.cs">
+      <DependentUpon>WorkerManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\ManagementWindows\WorkingHourManagement.xaml.cs">
+      <DependentUpon>WorkingHourManagement.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerCustom\HairSalonPanel.xaml.cs">
+      <DependentUpon>HairSalonPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerCustom\MethodOfPaymentPanel.xaml.cs">
+      <DependentUpon>MethodOfPaymentPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerCustom\ServicePanel.xaml.cs">
+      <DependentUpon>ServicePanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerCustom\WorkerPanel.xaml.cs">
+      <DependentUpon>WorkerPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerCustom\WorkerSelection.xaml.cs">
+      <DependentUpon>WorkerSelection.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerCustom\WorkerSelectionPanel.xaml.cs">
+      <DependentUpon>WorkerSelectionPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerCustom\WorkingHourPanel.xaml.cs">
+      <DependentUpon>WorkingHourPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\OwnerMainMenu.xaml.cs">
+      <DependentUpon>OwnerMainMenu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\ShowWindows\ShowHairSalon.xaml.cs">
+      <DependentUpon>ShowHairSalon.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="OwnerWindows\ShowWindows\ShowWorker.xaml.cs">
+      <DependentUpon>ShowWorker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedWindows\Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedWindows\SharedCustom\LoadingScreen.xaml.cs">
+      <DependentUpon>LoadingScreen.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SharedWindows\Start.xaml.cs">
+      <DependentUpon>Start.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerWindows\AddNewWindows\AddNewAppointment.xaml.cs">
+      <DependentUpon>AddNewAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerWindows\WorkerCustom\AppointmentPanel.xaml.cs">
+      <DependentUpon>AppointmentPanel.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerWindows\WorkerCustom\AppointmentPanelMini.xaml.cs">
+      <DependentUpon>AppointmentPanelMini.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerWindows\WorkerCustom\ShowAppointment.xaml.cs">
+      <DependentUpon>ShowAppointment.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WorkerWindows\WorkerMainMenu.xaml.cs">
+      <DependentUpon>WorkerMainMenu.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="AdminWindows\AddNewWindows\AddNewAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AddNewWindows\AddNewOwner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AddNewWindows\AddNewRegisteredUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AddNewWindows\AddNewSubscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AdminCustom\AdminPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AdminCustom\OwnerPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AdminCustom\RegisteredUserPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AdminCustom\SubscriptionPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\AdminMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\EditWindows\EditAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\AddNewWindows\AddNewService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\AddNewWindows\AddNewWorkingHour.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\EditWindows\EditMethodOfPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\EditWindows\EditOwner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\EditWindows\EditRegisteredUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\EditWindows\EditSubscription.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\ManagementWindows\AdminManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\ManagementWindows\OwnerManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\ManagementWindows\RegisteredUserManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\ManagementWindows\SubscriptionsManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\ShowWindows\ShowOwner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminWindows\ShowWindows\ShowRegisteredUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\AddNewWindows\AddNewHairSalon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\AddNewWindows\AddNewMethodOfPayment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\AddNewWindows\AddNewWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\AddNewWindows\RegisterOwner.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\EditWindows\EditHairSalon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\EditWindows\EditService.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\EditWindows\EditWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\EditWindows\EditWorkingHour.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\ManagementWindows\HairSalonManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\ManagementWindows\MethodOfPaymentManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\ManagementWindows\ServiceManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\ManagementWindows\WorkerManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\ManagementWindows\WorkingHourManagement.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerCustom\HairSalonPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerCustom\MethodOfPaymentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerCustom\ServicePanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerCustom\WorkerPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerCustom\WorkerSelection.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerCustom\WorkerSelectionPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerCustom\WorkingHourPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\OwnerMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\ShowWindows\ShowHairSalon.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerWindows\ShowWindows\ShowWorker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SharedWindows\Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SharedWindows\SharedCustom\LoadingScreen.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SharedWindows\Start.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkerWindows\AddNewWindows\AddNewAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkerWindows\WorkerCustom\AppointmentPanel.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkerWindows\WorkerCustom\AppointmentPanelMini.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkerWindows\WorkerCustom\ShowAppointment.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WorkerWindows\WorkerMainMenu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ApiClient\ApiClient.csproj">
+      <Project>{2a503a2a-c799-4919-8659-31704cdc7552}</Project>
+      <Name>ApiClient</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj">
+      <Project>{0e9b0c64-c3b3-49d6-b05f-844fd3a64914}</Project>
+      <Name>DataAccessLayer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Utilities\Utilities.csproj">
+      <Project>{fd52ca6b-059e-4361-ad40-920c410909c8}</Project>
+      <Name>Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
