@@ -5,25 +5,26 @@ Hair Salon Management Web & Windows Desktop Application - 2019.
 ---
 
 ### **Overview**
-SisanjeHR is a system that consists of two applications, a Windows desktop application and a web application.
-Windows desktop application is for owners and employees of hair salons to manage hair salons, customers and appointments.
-Web application is for customers to find hair salons and book appointments in one place.
+SisanjeHR offers a comprehensive hair salon management system with two applications: a Windows desktop application for salon owners and employees to manage salon operations, customers, and appointments, and a web application for customers to discover salons and conveniently book appointments online.
 
 ---
 
 ### **Tech Stack**
-- .NET Framework 4.8 - WPF 
-- .NET Framework 4.8 - ASP.NET MVC
-- .NET Framework 4.8 - ASP.NET Web API
-- Entity Framework
-- Bootstrap 4
-- Microsoft SQL Server
+- Frontend
+    - .NET Framework 4.8 - WPF 
+    - .NET Framework 4.8 - ASP.NET MVC
+    - Bootstrap 4
+- Backend
+    - .NET Framework 4.8 - ASP.NET Web API
+    - Entity Framework
+- Database
+    - Microsoft SQL Server
 
 ---
 
 ### **Tools**
-- Source Control: JetBrains Space
+- Source Control: GitHub
 - IDE: Visual Studio 2019
-- API Tester: Postman
+- API Client: Postman
 
 ---
