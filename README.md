@@ -11,14 +11,14 @@ SisanjeHR offers a comprehensive hair salon management system with two applicati
 
 ### **Tech Stack**
 - Frontend
-    - .NET Framework 4.8 - WPF 
-    - .NET Framework 4.8 - ASP.NET MVC
-    - Bootstrap 4
+  - .NET Framework 4.8 - WPF 
+  - .NET Framework 4.8 - ASP.NET MVC
+  - Bootstrap 4
 - Backend
-    - .NET Framework 4.8 - ASP.NET Web API
-    - Entity Framework
+  - .NET Framework 4.8 - ASP.NET Web API
+  - Entity Framework
 - Database
-    - Microsoft SQL Server
+  - Microsoft SQL Server
 
 ---
 
