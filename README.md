@@ -1,4 +1,4 @@
-# <img src="sisanjehr.png" width="25"/> SisanjeHR
+# <img src="sisanjehr.svg" width="25"/> SisanjeHR
 
 ### **👁️ Overview**
 Hair Salon Management Web & Windows Desktop Application - 2019.
