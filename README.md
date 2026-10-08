@@ -4,7 +4,7 @@
 Hair Salon Management Web & Windows Desktop Application - 2019.
 
 <p align="justify">
-  SisanjeHR offers a comprehensive hair salon management system with two applications: a Windows desktop application for salon owners and employees to manage salon operations, customers, and appointments, and a web application for customers to discover salons and conveniently book appointments online.
+  SisanjeHR offers a comprehensive hair salon management system with two applications: a Windows desktop application for salon owners and employees to manage salon operations, customers, and appointments, and a web application for customers to book and manage their appointments online.
 </p>
 
 #
@@ -19,10 +19,3 @@ Hair Salon Management Web & Windows Desktop Application - 2019.
   - Entity Framework
 - Database
   - Microsoft SQL Server
-
-#
-
-### **🛠️ Tools**
-- Source Control: GitHub
-- IDE: Visual Studio 2019
-- API Client: Postman
